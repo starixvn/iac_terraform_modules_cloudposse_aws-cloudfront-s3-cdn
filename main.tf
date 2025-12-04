@@ -450,6 +450,7 @@ module "logs" {
 data "aws_s3_bucket" "origin" {
   count  = local.enabled && (var.origin_bucket != null) ? 1 : 0
   bucket = var.origin_bucket
+  region = var.origin_bucket_region
 }
 
 data "aws_s3_bucket" "cf_logs" {

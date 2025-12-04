@@ -54,6 +54,12 @@ variable "origin_bucket" {
   description = "Name of an existing S3 bucket to use as the origin. If this is not provided, it will create a new s3 bucket using `var.name` and other context related inputs"
 }
 
+variable "origin_bucket_region" {
+  type        = string
+  default     = "us-east-1"
+  description = "Region for the original bucket"
+}
+
 variable "origin_path" {
   # http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginPath
   type        = string
