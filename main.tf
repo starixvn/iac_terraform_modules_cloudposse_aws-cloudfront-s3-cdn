@@ -120,6 +120,7 @@ data "aws_partition" "current" {
 data "aws_region" "current" {
   count  = local.enabled ? 1 : 0
   region = var.origin_bucket_region
+  name   = var.origin_bucket_region
 }
 
 module "origin_label" {
