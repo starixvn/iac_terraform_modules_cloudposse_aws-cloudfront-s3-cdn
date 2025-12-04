@@ -97,7 +97,7 @@ locals {
     "eu-north-1"   = "eu-west-2"
     "me-south-1"   = "ap-south-1"
   }
-  origin_shield_region = local.enabled ? lookup(local.origin_shield_region_fallback_map, data.aws_region.current[0].name, data.aws_region.current[0].name) : "this string is never used"
+  origin_shield_region = local.enabled ? lookup(local.origin_shield_region_fallback_map, data.aws_region.current[0].region, data.aws_region.current[0].region) : "this string is never used"
 
   cors_origins = distinct(compact(concat(var.cors_allowed_origins, var.aliases, var.external_aliases)))
 }
@@ -120,7 +120,6 @@ data "aws_partition" "current" {
 data "aws_region" "current" {
   count  = local.enabled ? 1 : 0
   region = var.origin_bucket_region
-  name   = var.origin_bucket_region
 }
 
 module "origin_label" {
