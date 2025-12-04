@@ -754,9 +754,3 @@ variable "bucket_versioning" {
     error_message = "Please choose one of 'Enabled', 'Disabled', or 'Suspended'"
   }
 }
-
-variable "additional_tag_map" {
-  type        = map(string)
-  default     = {}
-  description = "Additional key-value pairs to add to each map in tags_as_list_of_maps."
-}
