@@ -126,6 +126,7 @@ module "origin_label" {
   version = "0.25.0"
 
   attributes = var.extra_origin_attributes
+  tags       = var.additional_tag_map
 
   context = module.this.context
 }
