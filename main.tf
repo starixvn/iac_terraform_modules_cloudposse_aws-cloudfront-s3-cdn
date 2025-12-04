@@ -308,6 +308,7 @@ resource "aws_s3_bucket" "origin" {
   bucket        = module.origin_label.id
   tags          = module.origin_label.tags
   force_destroy = var.origin_force_destroy
+  region        = var.origin_bucket_region
 
   dynamic "logging" {
     for_each = local.s3_access_logging_enabled ? [1] : []
